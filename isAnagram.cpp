@@ -38,7 +38,7 @@ int charValue(char arg){
 		case 'x': return 23; break;
 		case 'y': return 24; break;
 		case 'z': return 25; break;
-		
+		default: return -1;
 	}
 	
 }
@@ -55,9 +55,15 @@ bool isAnagram(string s1, string s2){
 	for(int i = 0; i<size; i++){
 		
 		temp = charValue(s1[i]);
+		if(temp == -1){
+			return false;
+		}
 		s1CharCount[temp] = s1CharCount[temp]+1;
 		
 		temp = charValue(s2[i]);
+		if(temp == -1){
+			return false;
+		}
 		s2CharCount[temp] = s2CharCount[temp]+1;
 	}
 	for(int i = 0; i<26;i++){
